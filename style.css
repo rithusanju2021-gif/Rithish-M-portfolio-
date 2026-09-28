@@ -1,0 +1,174 @@
+/* ---------------------------------------------------
+   Rithish M — Portfolio Stylesheet
+   --------------------------------------------------- */
+:root{
+  --bg: #0b0f14;
+  --bg-alt: #111823;
+  --card: #141c27;
+  --border: #223042;
+  --text: #e7edf3;
+  --text-dim: #9fb0c3;
+  --accent: #35d0ba;
+  --accent-2: #6c8cff;
+  --danger: #ff6b6b;
+  --radius: 14px;
+  --maxw: 1080px;
+  font-size: 16px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(108,140,255,0.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(53,208,186,0.10), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a{ color: var(--accent); text-decoration:none; }
+a:hover{ color: var(--accent-2); }
+
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Navbar */
+header.site-header{
+  position: sticky; top:0; z-index: 50;
+  background: rgba(11,15,20,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.nav{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+  font-weight:700; font-size:1.25rem; letter-spacing:0.5px; color: var(--text);
+}
+.brand span{ color: var(--accent); }
+.nav-links{
+  list-style:none; display:flex; gap: 22px; margin:0; padding:0;
+  flex-wrap: wrap;
+}
+.nav-links a{
+  color: var(--text-dim); font-weight:500; font-size:0.95rem;
+  padding: 6px 2px; border-bottom: 2px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active{
+  color: var(--text); border-bottom-color: var(--accent);
+}
+
+/* Hero */
+.hero{
+  padding: 76px 0 56px;
+  border-bottom: 1px solid var(--border);
+}
+.hero .eyebrow{
+  text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem;
+  color: var(--accent); font-weight:700;
+}
+.hero h1{
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 10px 0 8px;
+}
+.hero h1 .accent{ color: var(--accent-2); }
+.hero p.lead{
+  color: var(--text-dim); max-width: 620px; font-size:1.05rem;
+}
+.hero-cta{ display:flex; gap:14px; margin-top: 26px; flex-wrap: wrap; }
+
+.btn{
+  display:inline-block; padding: 11px 22px; border-radius: 999px;
+  font-weight:600; font-size:0.95rem; border: 1px solid transparent; cursor:pointer;
+}
+.btn-primary{ background: var(--accent); color:#04211c; }
+.btn-primary:hover{ background:#4fe0cb; color:#04211c; }
+.btn-outline{ border-color: var(--border); color: var(--text); background:transparent; }
+.btn-outline:hover{ border-color: var(--accent); color:var(--accent); }
+
+/* Sections */
+section{ padding: 56px 0; }
+section h2{
+  font-size: 1.7rem; margin-bottom: 8px;
+}
+.section-sub{ color: var(--text-dim); margin-bottom: 32px; max-width: 640px; }
+
+/* Cards / grid */
+.grid{
+  display:grid; gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.card h3{ margin: 0 0 8px; font-size: 1.08rem; }
+.card p{ color: var(--text-dim); margin: 0 0 10px; font-size:0.95rem; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+.tag{
+  background: rgba(53,208,186,0.12); color: var(--accent);
+  border: 1px solid rgba(53,208,186,0.35);
+  border-radius: 999px; font-size: 0.76rem; padding: 4px 10px; font-weight:600;
+}
+
+/* Skills bars */
+.skill-item{ margin-bottom: 16px; }
+.skill-item .label{ display:flex; justify-content:space-between; font-size:0.92rem; margin-bottom:6px; }
+.bar{ background: var(--bg-alt); border-radius: 999px; height: 8px; overflow:hidden; border:1px solid var(--border); }
+.bar-fill{ height:100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+
+/* Timeline (academic / internships) */
+.timeline{ border-left: 2px solid var(--border); margin-left: 8px; }
+.timeline-item{ position:relative; padding: 4px 0 26px 26px; }
+.timeline-item::before{
+  content:''; position:absolute; left:-7px; top:6px; width:12px; height:12px;
+  border-radius:50%; background: var(--accent); border:2px solid var(--bg);
+}
+.timeline-item h3{ margin:0 0 4px; font-size:1.05rem; }
+.timeline-item .meta{ color: var(--text-dim); font-size:0.85rem; margin-bottom:6px; }
+
+/* Table */
+table.detail-table{ width:100%; border-collapse: collapse; background: var(--card); border:1px solid var(--border); border-radius: var(--radius); overflow:hidden; }
+table.detail-table th, table.detail-table td{ text-align:left; padding: 12px 16px; border-bottom:1px solid var(--border); font-size:0.94rem; }
+table.detail-table th{ width: 220px; color: var(--text-dim); font-weight:600; background: var(--bg-alt); }
+table.detail-table tr:last-child td{ border-bottom:none; }
+
+/* Forms */
+form.contact-form{ display:grid; gap: 16px; max-width: 560px; }
+.form-row{ display:flex; flex-direction:column; gap:6px; }
+.form-row label{ font-size:0.88rem; color: var(--text-dim); }
+.form-row input, .form-row textarea{
+  background: var(--bg-alt); border:1px solid var(--border); border-radius:10px;
+  padding: 11px 14px; color: var(--text); font-family:inherit; font-size:0.95rem;
+}
+.form-row input:focus, .form-row textarea:focus{ outline:none; border-color: var(--accent); }
+.alert{ padding: 12px 16px; border-radius:10px; font-size:0.92rem; margin-bottom: 18px; }
+.alert-success{ background: rgba(53,208,186,0.12); border:1px solid rgba(53,208,186,0.4); color: var(--accent); }
+.alert-error{ background: rgba(255,107,107,0.12); border:1px solid rgba(255,107,107,0.4); color: var(--danger); }
+
+/* Footer */
+footer.site-footer{
+  border-top: 1px solid var(--border); padding: 28px 0; margin-top: 40px;
+  color: var(--text-dim); font-size:0.88rem;
+}
+.footer-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.footer-links a{ margin-left:16px; color: var(--text-dim); }
+.footer-links a:hover{ color: var(--accent); }
+
+@media (max-width: 640px){
+  .nav{ flex-direction:column; gap:10px; align-items:flex-start; }
+  table.detail-table th{ width: 130px; }
+}
